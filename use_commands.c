@@ -5,8 +5,8 @@ void r_to_r(t_data *a, t_data *b, int indexa, int indexb)//✔️✔️ Best_way
     int repeat;
     int total_step;
 
-    repeat = calculate_double_total(rotate_time(indexa),rotate_time(indexb));
-    total_step = calculate_double_total(rev_rotate_time(indexa,a),rev_rotate_time(indexb,b));
+    repeat = calculate_double_total(rotate_time(indexa,a),rotate_time(indexb,b));
+    total_step = calculate_double_total(rotate_time(indexa,a),rotate_time(indexb,b));
     while (total_step--)
     {
         if (repeat--)
@@ -56,8 +56,8 @@ void rr_to_rr(t_data *a, t_data *b,int indexa, int indexb)//rev-rot ✔️✔️
     int repeat;
     int total_step;
 
-    repeat = calculate_same_step(rev_rotate_time(indexa,a),rev_rotate_time(indexb,b));
-    total_step = calculate_double_total(rev_rotate_time(indexa,a),rev_rotate_time(indexb,b));
+    repeat = calculate_same_step(rev_rotate_time(indexa),rev_rotate_time(indexb));
+    total_step = calculate_double_total(rev_rotate_time(indexa),rev_rotate_time(indexb));
     while (total_step--)
     {
         if (repeat--)

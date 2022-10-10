@@ -29,7 +29,7 @@ typedef struct s_data
 void data_sort(t_data *a, t_data *b);
 
 //to_the_top
-int rotate_time(int index);
-int rev_rotate_time(int index, t_data *stack);
+int rev_rotate_time(int index);
+int rotate_time(int index, t_data *stack);
 int calculate_same(int step1, int step2);
 #endif

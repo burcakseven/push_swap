@@ -32,16 +32,16 @@ int min_way_for_one(int index,t_data *a, t_data *b,int *apply)// 2147483647 âœ”ï
 
     min_step = 2147483647;
     b_index = which_location_use(a->array[index],b);
-    temp = calculate_same_total(rotate_time(index),rotate_time(b_index));
+    temp = calculate_same_total(rotate_time(index,a),rotate_time(b_index,b));
     if (temp < min_step)//1
         fill_data(temp, &min_step, apply, 1);
-    temp = rev_rotate_time(index,a)+rotate_time(b_index);
+    temp = rev_rotate_time(index)+rotate_time(b_index,b);
     if (temp < min_step)//2
         fill_data(temp, &min_step, apply, 2);
-    temp = calculate_same_total(rev_rotate_time(index,a),rev_rotate_time(b_index,b));
+    temp = calculate_same_total(rev_rotate_time(index),rev_rotate_time(b_index));
     if (temp < min_step)//3
         fill_data(temp, &min_step, apply, 3);
-    temp = rev_rotate_time(b_index,b)+rotate_time(index);
+    temp = rev_rotate_time(b_index)+rotate_time(index,a);
     if (temp < min_step)//4
         fill_data(temp, &min_step, apply, 4);
     
@@ -68,4 +68,11 @@ void best_way_to_push(t_data *a,t_data *b)
     }
     index[1] = which_location_use(a->array[index[0]],b);
     send_to_b(*a, *b, index, apply[1]);
+}
+
+void complex_sort(t_data *a, t_data *b)
+{
+    best_way_to_push(a,b);
+    fix_b_stack(b);
+    push_back_to_a(a,b);
 }

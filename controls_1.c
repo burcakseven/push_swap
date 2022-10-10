@@ -14,7 +14,7 @@ int	is_sorted(t_data *a)
 	reload_data_size(a);
 	while (i < a->size - 1)
 	{
-		if (a->array[i] < a->array[i +1])
+		if (a->array[i] > a->array[i +1])
 			i++;
 		else
 			return (0);
@@ -23,6 +23,21 @@ int	is_sorted(t_data *a)
 	exit(1);
 }
 
+int	is_rev_sorted_for_b(t_data *b)
+{
+	int	i;
+
+	i = 0;
+	reload_data_size(b);
+	while (i < b->size - 1)
+	{
+		if (b->array[i] < b->array[i +1])
+			i++;
+		else
+			return (0);
+	}
+	return (1);
+}
 int	word_count(char const *s, char c)
 {
 	int	r;

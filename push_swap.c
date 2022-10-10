@@ -7,4 +7,5 @@ int main(int argc, char **av)
     take_args(a,b,argc,av);
     ft_checkdouble(a);
     best_way_to_push(a,b);
+    
 }

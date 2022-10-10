@@ -9,19 +9,19 @@ void reload_data_size(t_data *stack)
         stack->size = ++i;
 }
 
-int rotate_time(int index) //✔️✔️
+int rev_rotate_time(int index) //✔️✔️
 {
-    int rotate_time;
-    rotate_time = index +1;
-    return rotate_time;
+    int rev_rotate_time;
+    rev_rotate_time = index +1;
+    return rev_rotate_time;
 }
 
-int rev_rotate_time(int index, t_data *stack) //✔️✔️
+int rotate_time(int index, t_data *stack) //✔️✔️
 {
     reload_data_size(stack);
-    int rev_rotate_time;
-    rev_rotate_time = stack->size - (index+1);
-    return rev_rotate_time;
+    int rotate_time;
+    rotate_time = stack->size - (index+1);
+    return rotate_time;
 }
 
 int calculate_double_total(int step1, int step2) //✔️✔️
