@@ -8,7 +8,7 @@ int find_max(t_data *b)
 
     max = -2147483648;
     index = 0;
-    reload_data_size(b);
+    // reload_data_size(b);
     while (index < b->size)
     {
        if (max < b->array[index])
@@ -21,7 +21,7 @@ int find_max(t_data *b)
     return index_of_max;
 }
 
-int fix_b_stack(t_data *b)
+void fix_b_stack(t_data *b)
 {
     int temp_step;
 
@@ -29,12 +29,12 @@ int fix_b_stack(t_data *b)
     {
         temp_step = rotate_time(find_max(b),b);
         while (temp_step--)
-            rotate(b);
+            rotate(b,0);
     }
     else
         temp_step = rev_rotate_time(find_max(b));
         while (temp_step--)
-            rev_rotate(b);
+            rev_rotate(b,0);
 }
 
 void push_back_to_a(t_data *a, t_data *b)

@@ -1,13 +1,15 @@
 #include "push_swap.h"
+//sonsuz döngü
+// void reload_data_size(t_data *stack)
+// {
+//     int i;
+//     i = 0;
 
-void reload_data_size(t_data *stack)
-{
-    int i;
-    i = 0;
-
-    while (stack->array[i])
-        stack->size = ++i;
-}
+//     while (stack->array[i])
+//     {
+//         stack->size = ++i;
+//     }
+// }
 
 int rev_rotate_time(int index) //✔️✔️
 {
@@ -18,7 +20,7 @@ int rev_rotate_time(int index) //✔️✔️
 
 int rotate_time(int index, t_data *stack) //✔️✔️
 {
-    reload_data_size(stack);
+    // reload_data_size(stack);
     int rotate_time;
     rotate_time = stack->size - (index+1);
     return rotate_time;

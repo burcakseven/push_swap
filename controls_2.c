@@ -5,6 +5,7 @@ int	number_count(int argc, char **argv)
 	int	i;
 	int	count;
 
+	count = 0;
 	i = 1;
 	while (i < argc)
 	{
@@ -63,7 +64,7 @@ void	take_args(t_data *a, t_data *b, int argc, char **argv)
 		j = 0;
 		while (str[j])
 		{
-			if (ft_is_numeric(str[j] == 0))
+			if (ft_is_numeric(str[j])== 0)
 				ft_error();
 			a->array[a->size++] = ft_atoi(str[j++]);
 		}

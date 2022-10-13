@@ -74,7 +74,7 @@ void rr_to_rr(t_data *a, t_data *b,int indexa, int indexb)//rev-rot ✔️✔️
     push(a,b);
 }
 void send_to_b(t_data *a, t_data *b, int apply,int *index)//✔️✔️Best_way_to_push
-{
+{ 
     if(apply == 1)
         r_to_r(a,b,index[0],index[1]);
     if(apply == 2)

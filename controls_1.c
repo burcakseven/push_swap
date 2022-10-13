@@ -2,7 +2,7 @@
 
 void	ft_error(void)
 {
-	ft_printf("ERROR\n");
+	printf("ERROR\n");
 	exit(1);
 }
 
@@ -11,16 +11,15 @@ int	is_sorted(t_data *a)
 	int	i;
 
 	i = 0;
-	reload_data_size(a);
+	// reload_data_size(a);
 	while (i < a->size - 1)
 	{
-		if (a->array[i] > a->array[i +1])
+		if (a->array[i] < a->array[i +1])
 			i++;
 		else
 			return (0);
 	}
-	ft_printf("Array is sorted.");
-	exit(1);
+	return(1);
 }
 
 int	is_rev_sorted_for_b(t_data *b)
@@ -28,11 +27,11 @@ int	is_rev_sorted_for_b(t_data *b)
 	int	i;
 
 	i = 0;
-	reload_data_size(b);
+	// reload_data_size(b);
 	while (i < b->size - 1)
 	{
-		if (b->array[i] < b->array[i +1])
-			i++;
+		if (b->array[i + 1] < b->array[i]){
+			i++;}
 		else
 			return (0);
 	}
