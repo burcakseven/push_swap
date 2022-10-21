@@ -1,81 +1,72 @@
-/* ************************************************************************** */
-/*                                                                            */
-/*                                                        :::      ::::::::   */
-/*   push_swap.h                                        :+:      :+:    :+:   */
-/*                                                    +:+ +:+         +:+     */
-/*   By: tyildiri <42istanbul.com.tr>               +#+  +:+       +#+        */
-/*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/08 03:15:57 by tyildiri          #+#    #+#             */
-/*   Updated: 2022/09/08 03:16:01 by tyildiri         ###   ########.tr       */
-/*                                                                            */
-/* ************************************************************************** */
-
 #ifndef PUSH_SWAP_H
 # define PUSH_SWAP_H
 
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
-# include <string.h>
-# include "libft/libft.h"
 
-typedef struct s_data
+typedef struct second_stack_rev_rotate_step
 {
-	int		*array;
+	int		*stack;
 	int		size;
-	char	type;
-}	t_data;
+	char	name;
+}			t_stack;
 
-//basic_sort.c
-int untill_three_sort(t_data *a);
-int rev_untill_three_sort(t_data *b);
-void compare_and_push(t_data *a, t_data *b);
-void fix_a_sort(t_data *a);
-void sort_until_six(t_data *a, t_data *b);
-//complex_sort_lastest
-int find_max(t_data *b);
-void fix_b_stack(t_data *b);
-void push_back_to_a(t_data *a, t_data *b);
-//complex_sort.c
-void fill_data(int tmp, int *min_step, \
-int *which_to_apply, int apply_value);
-int which_location_use(int a_to_push,t_data *b);
-int min_way_for_one(int index,t_data *a, t_data *b,int *apply);
-void best_way_to_push(t_data *a,t_data *b);
-void complex_sort(t_data *a, t_data *b);
-//controls_1.c
-void	ft_error(void);
-int	is_sorted(t_data *a);
-int	is_rev_sorted_for_b(t_data *b);
-int	word_count(char const *s, char c);
-//controls_2.c
-int	number_count(int argc, char **argv);
-void	ft_free(char **str);
-int	ft_is_numeric(char *str);
-void	take_args(t_data *a, t_data *b, int argc, char **argv);
-int	ft_checkdouble(t_data *a);
-//push_swap_commands.c
-void	swap(t_data *node, int flag); //Best_way_to_push
-void	ss(t_data *a, t_data *b);
-void	push(t_data *a, t_data *b);
-//push_swap.c
-void select_the_source_and_sort(t_data *a, t_data *b);
-int main(int argc, char **av);
-//rotate_commands.c
-void	rotate(t_data *node, int flag);
-void	rr(t_data *a, t_data *b);
-void	rev_rotate(t_data *node, int flag);
-void	rrr(t_data *a, t_data *b);
-//to_the_top.c
-// void reload_data_size(t_data *stack);
-int rev_rotate_time(int index); //✔️✔️
-int rotate_time(int index, t_data *stack); //✔️✔️
-int calculate_double_total(int step1, int step2); //✔️✔️
-int calculate_same_step(int step1, int step2);//✔️✔️
-//use_commands.c
-void r_to_r(t_data *a, t_data *b, int indexa, int indexb);//✔️✔️ Best_way_to_push
-void r_to_rr(t_data *a, t_data *b,int indexa, int indexb);//✔️✔️Best_way_to_push
-void rr_to_r(t_data *a, t_data *b,int indexa, int indexb);//✔️✔️Best_way_to_push
-void rr_to_rr(t_data *a, t_data *b,int indexa, int indexb);//rev-rot ✔️✔️Best_way_to_push
-void send_to_b(t_data *a, t_data *b, int apply,int *index);//✔️✔️Best_way_to_push
+void	check_input(char **str);
+int		get_total_size(char **str);
+void	set_object(t_stack *obj, int size, t_stack *b);
+void	create_stack(char **av, int size, t_stack *obj, t_stack *b);
+int		wordnum(const char *s);
+int		ft_isalpha(int c);
+int		ft_isspace(int c);
+int		ft_isdigit(int c);
+int		ft_isalnum(int c);
+void	check_double(int *ptr, int i, int ind);
+int		ft_atoi(const char *str, int *ptr);
+void	terminate(void);
+void	free_and_terminate(t_stack *a, t_stack *b);
+int		find_max(t_stack *stack);
+int		abs_val(int num);
+void	scan_chars(char *ptr);
+void	swap(t_stack *stack, int single);
+void	push(t_stack *to, t_stack *from);
+void	rotate(t_stack *stack, int single);
+void	reverse_rotate(t_stack *stack, int single);
+void	double_swap(t_stack *a, t_stack *b);
+void	double_rotate(t_stack *a, t_stack *b);
+void	double_reverse_rotate(t_stack *a, t_stack *b);
+void	apply_one(t_stack *a, t_stack *b, int a_step_num, int b_step_num);
+void	apply_two(t_stack *a, t_stack *b, int a_step_num, int b_step_num);
+void	apply_three(t_stack *a, t_stack *b, int a_step_num, int b_step_num);
+void	apply_four(t_stack *a, t_stack *b, int a_step_num, int b_step_num);
+void	sort_three(t_stack *stack);
+void	sort_short(t_stack *a, t_stack *b);
+void	get_sorted(t_stack *a, t_stack *b);
+void	sort(t_stack *a, t_stack *b);
+void	send_next_data_to_a(t_stack *a, t_stack *b);
+void	send_data_to_b(t_stack *a, t_stack *b, int min_apply, int *index);
+void	set_conditions(int tmp, int *min_step, int *which_to_apply, \
+int apply_value);
+int		find_best_way_to_send_a_data(t_stack *a, t_stack *b, int i, \
+int *which_to_apply);
+void	find_and_send_best_data(t_stack *a, t_stack *b);
+int		find_total_step(int first_stack_step, int second_stack_step);
+int		find_rr_num(int first_stack_step, int second_stack_step);
+int		find_rrr_num(int first_stack_step, int second_stack_step);
+int		find_step_num(int size, int index, int apply, char name);
+void	handle_zeros(t_stack *a, t_stack *b, int *steps, int apply_case);
+int		step_to_get_num_top_rotate(int index);
+int		step_to_get_num_top_rev_rotate(int index, int size);
+int		second_stack_rotate_step(t_stack *b, int num);
+int		second_stack_rev_rotate_step(t_stack *b, int num);
+int		is_sorted(t_stack *stack);
+int		find_min_index(t_stack *b);
+int		find_max_index(t_stack *b);
+int		which_index(t_stack *stack, int num);
+int		find_max_index_with_upper_bound(t_stack *stack, int upper);
+int		find_min_index_with_lower_bound(t_stack *stack, int lower);
+void	set_min_base(t_stack *a);
+void	set_max_base(t_stack *b);
+void	append_stack(t_stack *stack, int num, t_stack *second_stack);
+void	shrink_stack(t_stack *stack, t_stack *second_stack);
+
 #endif
